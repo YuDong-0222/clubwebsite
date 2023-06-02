@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import java from '../assets/Cardjava.png';
+import think from '../assets/thinking.png'
 import { staggerContainer, fadeIn } from '../utils/motion';
 import codeScreen from '../assets/codescreen.png'
 import Typed from 'react-typed';
@@ -64,11 +65,11 @@ const Cards = () => {
           >  
             {/* //card3 */}
             <div className='w-full shadow-xl flex flex-col p-4 md:my-0 my-4 rounded-lg hover:scale-105 duration-300'>
-              <img src={java} alt="/" className='w-[100%] rounded-xl mx-auto mt-[-3rem] bg-white'/>
+              <img src={think} alt="/" className='w-[100%] rounded-xl mx-auto mt-[-3rem] bg-white'/>
               <h2 className='text-2xl font-bold text-center py-8 sm:text-xl'>思考與深化!</h2>
               <p className='text-center text-2xl font-bold'>Thinking & Deeping</p>
               <div className='text-center font-medium'>
-                <p className='py-2 mx-8 mt-8 font-mono'>You Will be a Programmer!</p>
+                <p className='py-2 mx-8 mt-8 font-mono'>You Will be a Developer!</p>
               </div>
             </div>
         </motion.div>               

@@ -4,6 +4,7 @@ import { fadeIn } from '../utils/motion';
 import Typed from 'react-typed';
 import 'react-typed/dist/animatedCursor.css';
 import data from '../constants';
+import { staggerContainer } from '../utils/motion';
 
 const Faq = () => {
   const [cardStates, setCardStates] = useState([]);
@@ -15,8 +16,14 @@ const Faq = () => {
   };
 
   return (
-    <motion.div className={`overflow-hidden`}>
-      <div className='w-full bg-[#000300] py-[5rem]'>
+    <motion.div 
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+      className={`overflow-hidden`}>
+
+      <div className='bg-[#000300] py-[5rem]'>
         {/* ADD FRAMER MOTION :D */}
         <motion.div className="flex-[0.75] flex justify-center flex-col text-white text-center">
           <motion.div
@@ -44,6 +51,7 @@ const Faq = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  variants={fadeIn('right','pop', index * 0.5, 0.75)}
                 >
                   <div key={index} className='w-full flex flex-col my-4 p-8 rounded-lg'>
                     <div className='min-w-[320px] rounded-xl mx-auto bg-white md:w-[660px] lg:w-[960px] sm:w-[540px] px-8 py-8' onClick={() => handleCardClick(index)}>
@@ -59,17 +67,21 @@ const Faq = () => {
               ))}
           </div>
           {/* QACards End */}     
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className='min-w-[360px] max-w-[580px] sm:w-[360px] sm:h-[85px] sm:mt-[7%] md:w-[580px]  bg-[#25e196] rounded-lg font-medium my-y mx-auto py-3  md:mt-[3%] lg:mt-[2%] hover:bg-[#52b689] active:bg-[#19a880] focus:outline-none focus:ring focus:ring-[#022d4e] text-2xl text-black'
-            >  
-              <a href="https://hackmd.io/@YuDong/tntcsh_csirc#FAQ---%E7%A4%BE%E5%9C%98%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E9%9B%86" target='_blank' rel="noopener noreferrer">
-                <button className='mt-3'>
-                  點我傳送到HackMD
-                </button>
-              </a>
-            </motion.div>
+
+            <div className='min-w-[360px] max-w-[580px] sm:w-[360px] sm:h-[85px] sm:mt-[7%] md:w-[580px]  bg-[#25e196] rounded-lg font-medium my-y mx-auto py-3  md:mt-[3%] lg:mt-[2%] hover:bg-[#52b689] active:bg-[#19a880] focus:outline-none focus:ring focus:ring-[#022d4e] text-2xl text-black'>
+              <a href="https://hackmd.io/@YuDong/tntcsh_csirc#FAQ---%E7%A4%BE%E5%9C%98%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E9%9B%86" target='_blank' rel='noopener noreferrer'>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className='max-w-[580px] min-w-[360px]'
+                >
+                  <button className='mt-3'>
+                    點我傳送到HackMD
+                  </button>
+                </motion.div>
+              </a>  
+            </div>          
+            {/* </motion.div> */}
         </motion.div>
       </div>
     </motion.div>
