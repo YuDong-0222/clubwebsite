@@ -4,7 +4,7 @@ import { fadeIn } from '../utils/motion';
 import Typed from 'react-typed';
 import 'react-typed/dist/animatedCursor.css';
 import data from '../constants';
-import { staggerContainer } from '../utils/motion';
+import { staggerContainer, slideIn } from '../utils/motion';
 
 const Faq = () => {
   const [cardStates, setCardStates] = useState([]);
@@ -66,22 +66,24 @@ const Faq = () => {
                 </motion.div>
               ))}
           </div>
-          {/* QACards End */}     
-
-            <div className='min-w-[360px] max-w-[580px] sm:w-[360px] sm:h-[85px] sm:mt-[7%] md:w-[580px]  bg-[#25e196] rounded-lg font-medium my-y mx-auto py-3  md:mt-[3%] lg:mt-[2%] hover:bg-[#52b689] active:bg-[#19a880] focus:outline-none focus:ring focus:ring-[#022d4e] text-2xl text-black'>
+          {/* QACards End */}
+          <div className='flex mt-[5%] items-center flex-col gap-5'>
+            <motion.div
+              whileHover={{ scale: 1.3 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "Tween", stiffness: 400, damping: 10 }}
+              variants={slideIn('left', 'pop', 1.2, 1)}
+              className='justify'
+            >
               <a href="https://hackmd.io/@YuDong/tntcsh_csirc#FAQ---%E7%A4%BE%E5%9C%98%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E9%9B%86" target='_blank' rel='noopener noreferrer'>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className='max-w-[580px] min-w-[360px]'
-                >
-                  <button className='mt-3'>
-                    點我傳送到HackMD
-                  </button>
-                </motion.div>
-              </a>  
-            </div>          
-            {/* </motion.div> */}
+                <button type="button" className="flex items-center h-fit py-5 px-16 bg-[#25E196] rounded-full gap-[12px]">
+                  <span className="text-black font-bold text-2xl">
+                    點我前往HackMD
+                  </span>
+                </button>
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </motion.div>
