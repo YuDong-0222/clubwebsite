@@ -3,7 +3,7 @@ export const navVariants = {
     opacity: 0,
     y: -50,
     transition: {
-      type: 'spring',
+      type: 'tween',
       stiffness: 300,
       damping: 140,
     },
@@ -12,16 +12,16 @@ export const navVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: 'tween',
       stiffness: 80,
-      delay: 1,
+      delay: 1.3,
     },
   },
 };
 
 export const slideIn = (direction, type, delay, duration) => ({
   hidden: {
-    x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
+    x: direction === 'left' ? '-200%' : direction === 'right' ? '100%' : 0,
     y: direction === 'up' ? '100%' : direction === 'down' ? '100%' : 0,
   },
   show: {
@@ -106,24 +106,6 @@ export const fadeIn = (direction, type, delay, duration) => ({
   },
 });
 
-export const backIn = (direction, type, delay, duration) => ({
-  hidden: {
-    x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
-    y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      type,
-      delay,
-      duration,
-      ease: 'circIn',
-    },
-  },
-});
 
 export const planetVariants = (direction) => ({
   hidden: {

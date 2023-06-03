@@ -29,7 +29,7 @@ const data = [
   {
     id: '6',
     question: '更多問題...?',
-    answer: '點擊下方的按鈕 導向HackMD的FAQ部分!',
+    answer: '點擊下方的綠色按鈕 導向HackMD的FAQ部分!',
   },
   // 其他卡片的資料...
 ];
